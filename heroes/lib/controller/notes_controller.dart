@@ -14,4 +14,15 @@ class NotesController extends Controller {
   Future<RequestOrResponse> handle(Request request) async {
     return Response.ok(_notes);
   }
+
+  @Operation.post()
+Future<Response> createHero(@Bind.body(ignore: ["id"]) Note inputNote) async {
+  final query = Query<Note>(context)
+    ..values = inputNote;
+
+  final insertedNote = await query.insert();
+
+  return Response.ok(insertedNote);
+}
+
 }

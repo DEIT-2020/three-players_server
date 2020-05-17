@@ -14,4 +14,17 @@ class ToolsController extends Controller {
   Future<RequestOrResponse> handle(Request request) async {
     return Response.ok(_tools);
   }
+   @Operation.get('id')
+Future<Response> getToolByID(@Bind.path('id') int id) async {
+  final toolQuery = Query<Tool>(context)
+    ..where((h) => h.id).equalTo(id);    
+
+  final tool = await toolQuery.fetchOne();
+
+  if (tool == null) {
+    return Response.notFound();
+  }
+  return Response.ok(tool);
+}
+
 }
