@@ -1,9 +1,9 @@
 import 'heroes.dart';
 import 'controller/agentia_controller.dart';
 import 'controller/heroes_controller.dart';
-import 'controller/tools_controller.dart';
+import 'controller/user_controller.dart';
 import 'controller/notes_controller.dart';
-import 'controller/experiments_controller.dart';
+
 /// This type initializes an application.
 ///
 /// Override methods in this class to set up routes and initialize services like
@@ -57,18 +57,16 @@ Future prepare() async {
       .linkFunction((request) async {
         return Response.ok({"key": "value"});
       });
+     
       router
-      .route("/tool")
-      .link(()=>ToolsController());
+      .route("/agentias")//试剂
+      .link(()=>AgentiaController(context));
       router
-      .route("/agentias")
-      .link(()=>AgentiaController());
+      .route("/notes")//笔记
+      .link(()=>NotesController(context));
       router
-      .route("/notes")
-      .link(()=>NotesController());
-      router
-      .route("/experiments")
-      .link(()=>ExperimentsController());
+      .route("/user")
+      .link(()=>UserController(context));
     
 
 

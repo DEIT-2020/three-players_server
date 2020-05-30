@@ -1,21 +1,21 @@
 import 'package:aqueduct/aqueduct.dart';
 import 'package:heroes/heroes.dart';
+import 'package:heroes/model/experiment.dart';
 
-class ExperimentsController extends Controller {
+
+class ExperimentsController extends ResourceController {
+  ExperimentsController(this.context);
+
+  final ManagedContext context;
   final _experiments = [
-    {'id': 11, 'name': '氧气的制取'},
-    {'id': 12, 'name': '氢气还原氢氧化铜'},
-    {'id': 13, 'name': '二氧化碳的制取'},
-    {'id': 14, 'name': '酸碱中和'},
-    {'id': 15, 'name': '金属与酸'},    
+    {'id': 11, 'name': 'Mr. Nice'},
+    {'id': 12, 'name': 'Narco'},
+    {'id': 13, 'name': 'Bombasto'},
+    {'id': 14, 'name': 'Celeritas'},
+    {'id': 15, 'name': 'Magneta'},
   ];
 
-  @override
-  Future<RequestOrResponse> handle(Request request) async {
-    return Response.ok(_experiments);
-  }
-  
-    @Operation.get()
+  @Operation.get()
 Future<Response> getAllExperiments({@Bind.query('name') String name}) async {
   final experimentQuery = Query<Experiment>(context);
   if (name != null) {
@@ -37,16 +37,4 @@ Future<Response> getHeroByID(@Bind.path('id') int id) async {
     return Response.notFound();
   }
   return Response.ok(experiment);
-}
-
-@Operation.post()
-Future<Response> createExperiment(@Bind.body(ignore: ["id"]) Experiment inputExperiment) async {
-  final query = Query<Experiment>(context)
-    ..values = inputExperiment;
-
-  final insertedExperiment = await query.insert();
-
-  return Response.ok(insertedExperiment);
-}
-
 }
