@@ -1,4 +1,4 @@
-import 'package:heroes/heroes.dart';
+/*import 'package:heroes/heroes.dart';
 import 'package:heroes/model/user.dart';
 
 class Note extends ManagedObject<_Note> implements _Note {}
@@ -13,9 +13,9 @@ class _Note {
   @Column(unique: true)
   String notecontent;
 
-  @Relate(#books)
+  @Relate(#notes)
   User user;
 
 
 
-}
+}*/

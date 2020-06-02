@@ -1,4 +1,4 @@
-import 'package:aqueduct/aqueduct.dart';
+/*import 'package:aqueduct/aqueduct.dart';
 import 'package:heroes/heroes.dart';
 import 'package:heroes/model/user.dart';
 
@@ -25,10 +25,10 @@ Future<Response> getAllUsers({@Bind.query('username') String username}) async {
   return Response.ok(users);
 }
 
- @Operation.get('userid')
-Future<Response> getUserByID(@Bind.path('userid') int userid) async {
+ @Operation.get('id')
+Future<Response> getUserByID(@Bind.path('id') int id) async {
   final userQuery = Query<User>(context)
-    ..where((h) => h.userid).equalTo(userid);    
+    ..where((h) => h.id).equalTo(id);    
 
   final user = await userQuery.fetchOne();
 
@@ -39,7 +39,7 @@ Future<Response> getUserByID(@Bind.path('userid') int userid) async {
 }
 
 @Operation.post()
-Future<Response> createUser(@Bind.body(ignore: ["userid"]) User inputUser) async {
+Future<Response> createUser(@Bind.body(ignore: ["id"]) User inputUser) async {
   final query = Query<User>(context)
     ..values = inputUser;
 
@@ -94,4 +94,4 @@ Future<Response> createUser() async {
 
 
 }
-*/
+*/*/

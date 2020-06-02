@@ -8,6 +8,6 @@ class _Tip {
 
   String name;
 
-  @Relate(#tips)
+  @Relate(#tips,onDelete: DeleteRule.cascade)
   Experiment experiment;
 }

@@ -8,11 +8,9 @@ class ExperimentsController extends ResourceController {
 
   final ManagedContext context;
   final _experiments = [
-    {'id': 11, 'name': 'Mr. Nice'},
-    {'id': 12, 'name': 'Narco'},
-    {'id': 13, 'name': 'Bombasto'},
-    {'id': 14, 'name': 'Celeritas'},
-    {'id': 15, 'name': 'Magneta'},
+    {'id': 11, 'name': '酸碱中和'},
+    {'id': 12, 'name': '在氧气中燃烧'},
+
   ];
 
   @Operation.get()
@@ -37,4 +35,5 @@ Future<Response> getHeroByID(@Bind.path('id') int id) async {
     return Response.notFound();
   }
   return Response.ok(experiment);
+}
 }

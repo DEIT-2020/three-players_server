@@ -10,12 +10,14 @@ class _Experiment {
 
   //@Column(unique: true)
   @primaryKey
-  String id;
+  int id;
 
-  @Column(unique: true)
   String name;
 
- ManagedSet<ExperimentTool> experimentTools;
+ManagedSet<ExperimentTool> experimentTools;
 
 ManagedSet<ExperimentAgentia> experimentAgentias;
+
+ ManagedSet<Tip> tips;
+
 }

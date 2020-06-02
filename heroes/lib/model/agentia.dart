@@ -6,22 +6,21 @@ class _ExperimentAgentia {
   @primaryKey
   int id;  
 
-  @Relate(#experimentAgentia)
+  @Relate(#experimentAgentias)
   Experiment experiment;
 
-  @Relate(#experimentAgentia)
+  @Relate(#experimentAgentias)
   Agentia agentia;
 }
 
 class Agentia extends ManagedObject<_Agentia> implements _Agentia {}
 
 class _Agentia {
-  //@primaryKey
- // int agentiaid;
+  @primaryKey
+ int id;
 
   //@Column(unique: true)
-  @primaryKey
-  String agentianame;
+  String name;
 
   @Column(unique: true)
   String function;

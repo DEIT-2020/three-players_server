@@ -1,3 +1,4 @@
+
 import 'package:aqueduct/aqueduct.dart';
 import 'package:heroes/heroes.dart';
 import 'package:heroes/model/agentia.dart';
@@ -7,18 +8,17 @@ class AgentiaController extends ResourceController {
 
   final ManagedContext context;
   final _agentias = [
-    {'agentianame': '硫酸','function':'就随便写点什么'},
-    {'agentianame': '盐酸','function':'凑个字数吧'},
-    {'agentianame': '氢氧化钠','function':'哈哈哈哈哈哈哈'},
-    {'agentianame': '氧气','function':'不知道该说什么'},
-    {'agentianame': '氢气','function':'就祝你平安喜乐吧'},    
+    {'id':'1','name': '硫酸','function':'腐蚀金属，与碱中和。'},
+    {'id':'2','name': '盐酸','function':'与金属反应，与碱中和。'},
+    {'id':'3','name': '氢氧化钠','function':'与酸中和'},
+    
   ];
 
     @Operation.get()
-Future<Response> getAllAgentias({@Bind.query('agentianame') String agentianame}) async {
+Future<Response> getAllAgentias({@Bind.query('agentianame') String name}) async {
   final agentiaQuery = Query<Agentia>(context);
-  if (agentianame != null) {
-    agentiaQuery.where((h) => h.agentianame).contains(agentianame, caseSensitive: false);
+  if (name != null) {
+    agentiaQuery.where((h) => h.name).contains(name, caseSensitive: false);
   }
   final agentias = await agentiaQuery.fetch();
 
@@ -26,10 +26,10 @@ Future<Response> getAllAgentias({@Bind.query('agentianame') String agentianame})
 }
 
 
-  @Operation.get('agentianame')
+ /* @Operation.get('agentianame')
 Future<Response> getAgentiaByID(@Bind.path('agentianame') String agentianame) async {
   final agentiaQuery = Query<Agentia>(context)
-    ..where((h) => h.agentianame).equalTo(agentianame);    
+    ..where((h) => h.name).equalTo(agentianame);    
 
   final agentia = await agentiaQuery.fetchOne();
 
@@ -42,7 +42,7 @@ Future<Response> getAgentiaByID(@Bind.path('agentianame') String agentianame) as
 
 }
 
-
+*/
 /*class AgentiaController extends ResourceController {
   AgentiaController(this.context);
 
@@ -68,7 +68,6 @@ Future<Response> getAgentiaByNAME(@Bind.path('agentianame') int agentianame) asy
   }
   return Response.ok(agentia);
 }
-
+}*/
 
 }
-*/

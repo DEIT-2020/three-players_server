@@ -6,28 +6,24 @@ class _ExperimentTool {
   @primaryKey
   int id;  
 
-  @Relate(#experimentTool)
+  @Relate(#experimentTools)
   Experiment experiment;
 
-  @Relate(#experimentTool)
+  @Relate(#experimentTools)
   Tool tool;
 }
-
 
 class Tool extends ManagedObject<_Tool> implements _Tool {}
 
 class _Tool {
   @primaryKey
-  int toolid;
+ int id;
+
+  //@Column(unique: true)
+  String name;
 
   @Column(unique: true)
-  String toolname;
-
-    @Column(unique: true)
   String function;
 
-   ManagedSet<ExperimentTool> experimentTools;
-
-
+ManagedSet<ExperimentTool> experimentTools;
 }
-
