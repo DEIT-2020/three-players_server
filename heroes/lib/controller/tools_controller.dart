@@ -8,7 +8,7 @@ class ToolsController extends ResourceController {
   final ManagedContext context;
   final _tools = [
     {'id': 1, 'name': '烧杯','function':'放溶液'},
-    {'id': 2, 'name': '试管','function':'放少量的溶液'},   
+    {'id': 1, 'name': '试管','function':'放少量的溶液'},   
   ];
 
   /*@override
@@ -27,7 +27,7 @@ Future<Response> getAllTools({@Bind.query('name') String name}) async {
   return Response.ok(tools);
 }
 
- /*@Operation.get('toolid')
+ @Operation.get('id')
 Future<Response> getToolByID(@Bind.path('id') int id) async {
   final toolQuery = Query<Tool>(context)
     ..where((h) => h.id).equalTo(id);    
@@ -39,6 +39,7 @@ Future<Response> getToolByID(@Bind.path('id') int id) async {
   }
   return Response.ok(tool);
 }
+/*
  @Operation.get('name')
 Future<Response> getNoteByNAME(@Bind.path('name') String name) async {
   final toolQuery = Query<Tool>(context)
