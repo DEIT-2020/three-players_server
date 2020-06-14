@@ -1,4 +1,4 @@
-/*import 'package:heroes/heroes.dart';
+import 'package:heroes/heroes.dart';
 import 'package:heroes/model/note.dart';
 import 'package:aqueduct/managed_auth.dart';
 import 'dart:async';
@@ -18,4 +18,4 @@ class User extends ManagedObject<_User>
   
  ManagedSet<Note> notes;
 
-}*/
+}

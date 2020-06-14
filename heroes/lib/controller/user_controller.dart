@@ -1,4 +1,4 @@
-/*import 'package:aqueduct/aqueduct.dart';
+import 'package:aqueduct/aqueduct.dart';
 import 'package:heroes/heroes.dart';
 import 'package:heroes/model/user.dart';
 
@@ -94,4 +94,4 @@ Future<Response> createUser() async {
 
 
 }
-*/*/
+*/
