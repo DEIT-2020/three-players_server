@@ -77,13 +77,13 @@ Future prepare() async {
       .route("/registration")
       .link(()=>RegistrationController(context, authServer));*/
        router
-      .route("/agentias")//试剂
+      .route("/agentias/[:id]")//试剂
       .link(()=>AgentiaController(context));
       router
-      .route("/tip")
+      .route("/tip/[:id]")
       .link(()=>TipsController(context));
            router
-      .route("/tools")//试剂
+      .route("/tools/[:id]")//试剂
       .link(()=>ToolsController(context));
     return router;
   }
