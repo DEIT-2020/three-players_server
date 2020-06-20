@@ -1,4 +1,4 @@
-/*import 'package:aqueduct/aqueduct.dart';
+import 'package:aqueduct/aqueduct.dart';
 import 'package:heroes/heroes.dart';
 import 'package:heroes/model/note.dart';
 
@@ -62,43 +62,3 @@ Future<Response> createNote(@Bind.body(ignore: ["noteid"]) Note inputNote) async
 }
 
 }
-/*//奇奇怪怪的尝试
-class NotesController extends ResourceController {
-  NotesController(this.context);
-
-  final ManagedContext context;
-
-  @Operation.get()
-  Future<Response> getAllNotes() async {
-    final noteQuery = Query<Note>(context);
-    final notes = await noteQuery.fetch();
-
-    return Response.ok(notes);
-  }
-
-  @Operation.get('noteid')
-Future<Response> getNoteByID(@Bind.path('noteid') int noteid) async {
-  final noteQuery = Query<Note>(context)
-    ..where((h) => h.noteid).equalTo(noteid);    
-
-  final note = await noteQuery.fetchOne();
-
-  if (note == null) {
-    return Response.notFound();
-  }
-  return Response.ok(note);
-}
-
-@Operation.post()
-Future<Response> createNote() async {
-  final Map<String, dynamic> body = await request.body.decode();
-  final query = Query<Note>(context)
-    ..values.notename = body['notename'] as String 
-    ..values.notecontent = body['notecontent'] as String ;
-
-  final insertedNote = await query.insert();
-
-  return Response.ok(insertedNote);
-}
-
-}*/*/

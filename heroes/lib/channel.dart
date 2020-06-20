@@ -6,7 +6,7 @@ import 'controller/notes_controller.dart';
 import 'package:heroes/controller/register_controller.dart';
 import 'package:heroes/model/user.dart';
 import 'controller/tools_controller.dart';
-//import 'package:aqueduct/managed_auth.dart';
+import 'package:aqueduct/managed_auth.dart';
 import 'controller/tips_controller.dart';
 /// This type initializes an application.
 ///
@@ -36,8 +36,8 @@ Future prepare() async {
       config.database.databaseName);
 
   context = ManagedContext(dataModel, persistentStore);
- //final authStorage = ManagedAuthDelegate<User>(context);
-   // authServer = AuthServer(authStorage);
+ final authStorage = ManagedAuthDelegate<User>(context);
+    authServer = AuthServer(authStorage);
 
 }
 
@@ -59,7 +59,7 @@ Future prepare() async {
 
     // Prefer to use `link` instead of `linkFunction`.
     // See: https://aqueduct.io/docs/http/request_controller/
-    /*router
+    router
       .route("/example")
       .linkFunction((request) async {
         return Response.ok({"key": "value"});
@@ -70,12 +70,13 @@ Future prepare() async {
       .route("/notes")//笔记
       .link(()=>NotesController(context));
       router
-      .route("/user")
+      .route("/user/[:id]")
+      .link(()=>Authorizer.bearer(authServer))
       .link(()=>UserController(context));
 
        router
-      .route("/registration")
-      .link(()=>RegistrationController(context, authServer));*/
+      .route("/register")
+      .link(()=>RegisterController(context, authServer));
        router
       .route("/agentias/[:id]")//试剂
       .link(()=>AgentiaController(context));

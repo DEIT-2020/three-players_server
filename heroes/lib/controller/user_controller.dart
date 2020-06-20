@@ -1,4 +1,4 @@
-/*import 'package:aqueduct/aqueduct.dart';
+import 'package:aqueduct/aqueduct.dart';
 import 'package:heroes/heroes.dart';
 import 'package:heroes/model/user.dart';
 
@@ -51,47 +51,3 @@ Future<Response> createUser(@Bind.body(ignore: ["id"]) User inputUser) async {
 
 
 }
-
-
-/*class UserController extends ResourceController {
-   UserController(this.context);
-
-  final ManagedContext context;
-
-
-  @Operation.get()
-  Future<Response> getAllUsers() async {
-    final heroQuery = Query<User>(context);
-    final heroes = await heroQuery.fetch();
-
-    return Response.ok(heroes);
-  }
-
- @Operation.get('userid')
-Future<Response> getUserByID(@Bind.path('userid') int userid) async {
-  final userQuery = Query<User>(context)
-    ..where((h) => h.userid).equalTo(userid);    
-
-  final user = await userQuery.fetchOne();
-
-  if (user == null) {
-    return Response.notFound();
-  }
-  return Response.ok(user);
-}
-
-@Operation.post()
-Future<Response> createUser() async {
-  final Map<String, dynamic> body = await request.body.decode();
-  final query = Query<User>(context)
-    ..values.username = body['username'] as String;
-
-  final createUser = await query.insert();
-
-  return Response.ok(createUser);
-}
-
-
-
-}
-*/*/
