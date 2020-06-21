@@ -1,8 +1,8 @@
 import 'package:heroes/heroes.dart';
 import 'package:heroes/model/note.dart';
 import 'package:aqueduct/managed_auth.dart';
-import 'dart:async';
-import 'package:heroes/model/hero.dart';
+//import 'dart:async';
+//import 'package:heroes/model/hero.dart';
 
 
 class User extends ManagedObject<_User> 

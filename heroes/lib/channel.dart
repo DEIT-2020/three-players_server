@@ -64,8 +64,9 @@ Future prepare() async {
       .linkFunction((request) async {
         return Response.ok({"key": "value"});
       });
-     
-     
+      router
+      .route('/auth/token')
+      .link(()=>AuthController(authServer));
       router
       .route("/notes")//笔记
       .link(()=>NotesController(context));
