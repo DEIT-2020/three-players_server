@@ -1,0 +1,14 @@
+<h3>实验工具</h3>
+<div class="grid grid-pad">
+    <a [routerLink]="RoutePaths.tools.toUrl()"
+    [routerLinkActive]="'active'">点击查看更多</a>
+
+    <a *ngFor="let tool of tools" class="col-1-4"
+    [routerLink]="toolUrl(tool.id)">
+   <div class="module tool">
+     <h4>{{tool.name}}</h4>
+   </div>
+ </a>
+  </div>
+
+
