@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<h2>notes</h2>
+<ul class="notes">
+    <li *ngFor="let note of notes"
+    [class.selected]="note === selected"
+    (click)="onSelect(note)">
+  <span class="badge">{{note.noteid}}</span> {{note.notename}}
+</li>
+</ul>
+<div *ngIf="selected != null">
+  <h2>
+    {{selected.name | uppercase}} is my note
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
