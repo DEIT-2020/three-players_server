@@ -25,18 +25,7 @@ Future<Response> getAllAgentias({@Bind.query('agentianame') String name}) async 
   return Response.ok(agentias);
 }
 
-@Operation.get('id')
-Future<Response> getAgentiaByID(@Bind.path('id') int id) async {
-  final agentiaQuery = Query<Agentia>(context)
-    ..where((h) => h.id).equalTo(id);    
 
-  final agentia = await agentiaQuery.fetchOne();
-
-  if (agentia == null) {
-    return Response.notFound();
-  }
-  return Response.ok(agentia);
-}
  /* @Operation.get('agentianame')
 Future<Response> getAgentiaByID(@Bind.path('agentianame') String agentianame) async {
   final agentiaQuery = Query<Agentia>(context)
@@ -48,9 +37,37 @@ Future<Response> getAgentiaByID(@Bind.path('agentianame') String agentianame) as
     return Response.notFound();
   }
   return Response.ok(agentia);
-}*/
+}
 
 
 }
 
+*/
+/*class AgentiaController extends ResourceController {
+  AgentiaController(this.context);
 
+  final ManagedContext context;
+
+  @Operation.get()
+  Future<Response> getAllAgentia() async {
+    final agentiaQuery = Query<Agentia>(context);
+    final agentia = await agentiaQuery.fetch();
+
+    return Response.ok(agentia);
+  }
+
+ @Operation.get('agentianame')
+Future<Response> getAgentiaByNAME(@Bind.path('agentianame') int agentianame) async {
+  final agentiaQuery = Query<Agentia>(context)
+    ..where((h) => h.agentianame).equalTo(agentianame);    
+
+  final agentia = await agentiaQuery.fetchOne();
+
+  if (agentia == null) {
+    return Response.notFound();
+  }
+  return Response.ok(agentia);
+}
+}*/
+
+}

@@ -14,6 +14,9 @@ class _Experiment {
 
   String name;
 
+  @Column(unique: true)
+  String process;
+
 ManagedSet<ExperimentTool> experimentTools;
 
 ManagedSet<ExperimentAgentia> experimentAgentias;
