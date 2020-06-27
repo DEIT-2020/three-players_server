@@ -25,5 +25,7 @@ class _Tool {
   @Column(unique: true)
   String function;
 
+ @Column(unique: true)
+  String link;
 ManagedSet<ExperimentTool> experimentTools;
 }
