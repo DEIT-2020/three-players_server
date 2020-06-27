@@ -1,9 +1,9 @@
-/*import 'package:heroes/heroes.dart';
+import 'package:heroes/heroes.dart';
 import 'package:heroes/model/user.dart';
 
-class Note extends ManagedObject<_Note> implements _Note {}
+class TNote extends ManagedObject<_TNote> implements _TNote {}
 
-class _Note {
+class _TNote {
   @primaryKey
   int noteid;
 
@@ -13,9 +13,9 @@ class _Note {
   @Column(unique: true)
   String notecontent;
 
-  @Relate(#notes)
-  User user;
+  @Relate(#tnotes)
+  Tuser tuser;
 
 
 
-}*/
+}

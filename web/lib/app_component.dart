@@ -16,6 +16,12 @@ import 'src/routes.dart';
     <a [routerLink]="RoutePaths.tools.toUrl()"
        [routerLinkActive]="'active'">Tool</a>
 
+<<<<<<< HEAD
+=======
+    <a [routerLink]="RoutePaths.notes.toUrl()"
+       [routerLinkActive]="'active'">Note</a>
+
+>>>>>>> d204b4d3dfa9364f94904cd38dfff7760e536ea4
   </nav>
   <router-outlet [routes]="Routes.all"></router-outlet>
 ''',

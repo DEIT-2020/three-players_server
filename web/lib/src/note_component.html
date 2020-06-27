@@ -1,0 +1,22 @@
+<div *ngIf="note != null">
+  <div>
+    <label>new notename:<input #newNoteName/>new notecontent:<input #newNoteContent/></label>
+    <button (click)="add(newNoteName.value,newNoteContent.value);
+    newNoteName.value='';
+    newNoteContent.value=''">Add Note</button>
+    <p class="error" *ngIf="errorMessage != null">{{errorMessage}}</p>
+  </div>
+
+    <h2>{{note.notename}}</h2>
+    <div>
+      <label>noteid: </label>{{note.noteid}}</div>
+    <div>
+      <label>notename: </label>
+      <input [(ngModel)]="note.notename" placeholder="notename" />
+    </div>
+    <div>
+        <label>notecontent </label>
+      {{note.notecontent}}</div>
+    </div>
+    <button (click)="goBack()">Back</button>
+  </div>

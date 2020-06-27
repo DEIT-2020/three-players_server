@@ -25,5 +25,8 @@ class _Agentia {
   @Column(unique: true)
   String function;
 
+ @Column(unique: true)
+  String link;
+
 ManagedSet<ExperimentAgentia> experimentAgentias;
 }
