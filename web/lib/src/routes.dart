@@ -43,6 +43,7 @@ static final experiment = RouteDefinition(
    tool,
     dashboard,
     tools,
+  //实验和试剂不知道怎么加
     
      RouteDefinition.redirect(
     path: '',

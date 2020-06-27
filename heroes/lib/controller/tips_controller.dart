@@ -22,7 +22,18 @@ Future<Response> getAllTips({@Bind.query('name') String name}) async {
 
   return Response.ok(tips);
 }
+ @Operation.get('id')
+Future<Response> getTipByID(@Bind.path('id') int id) async {
+  final tipQuery = Query<Tip>(context)
+    ..where((h) => h.id).equalTo(id);    
 
+  final tip = await tipQuery.fetchOne();
+
+  if (tip == null) {
+    return Response.notFound();
+  }
+  return Response.ok(tip);
+}
 
 
   
