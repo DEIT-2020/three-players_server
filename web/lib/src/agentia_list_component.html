@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+<h2>agentias</h2>
+<ul class="agentias">
+    <li *ngFor="let agentia of agentias"
+    [class.selected]="agentia === selected"
+
+    (click)="onSelect(agentia)">
+  <span class="badge">{{agentia.id}}</span> {{agentia.name}}
+</li>
+</ul>
+<div *ngIf="selected != null">
+  <h2>
+    {{selected.name | uppercase}} is my agentia
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

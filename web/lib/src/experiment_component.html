@@ -1,0 +1,16 @@
+<div *ngIf="experiment != null">
+    <h2>{{experiment.name}}</h2>
+    <div>
+      <label>id: </label>{{experiment.id}}</div>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="experiment.name" placeholder="name" />
+    </div>
+    <div>
+        <label>introduction: </label>
+      {{experiment.introduction}}</div>
+    <div><label>picture: </label></div>
+    <div><img src="{{experiment.link}}" width="400" height="400" />
+    </div>
+    <button (click)="goBack()">Back</button>
+  </div>

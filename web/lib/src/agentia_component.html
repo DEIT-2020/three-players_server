@@ -1,0 +1,14 @@
+<div *ngIf="agentia != null">
+    <h2>{{agentia.name}}</h2>
+    <div>
+      <label>id: </label>{{agentia.id}}</div>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="agentia.name" placeholder="name" />
+    </div>
+    <div>
+        <label>function: </label>
+      {{agentia.function}}</div>
+    </div>
+    <button (click)="goBack()">Back</button>
+  </div>
