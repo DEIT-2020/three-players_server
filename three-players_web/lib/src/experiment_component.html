@@ -1,0 +1,33 @@
+<div *ngIf="experiment != null">
+    <h2>{{experiment.name}}</h2>
+    <div>
+      <label>id: </label>{{experiment.id}}</div>
+    <div>
+      <label>名称: </label>
+      <input [(ngModel)]="experiment.name" placeholder="name" />
+    </div>
+    <div>
+        <label>过程: </label>
+      {{experiment.process}}</div>
+    
+    <div class="tools">
+        <label>器材:</label>
+        <a *ngFor="let tool of tools" class="col-1-4"
+              [routerLink]="toolUrl(tool.id)">
+             <div class="module tool">
+               <h4>{{tool.name}}</h4>
+             </div>
+           </a>    
+    </div>
+    
+    <div class="agentias">
+      <label>试剂:</label>
+      <a *ngFor="let agentia of agentias" class="col-1-4"
+            [routerLink]="agentiaUrl(agentia.id)">
+           <div class="module agentia">
+             <h4>{{agentia.name}}</h4>
+           </div>
+         </a>    
+  </div> 
+    <button (click)="goBack()">Back</button>
+  </div>

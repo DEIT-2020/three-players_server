@@ -1,0 +1,12 @@
+<div id="search-component">
+  <label>查找笔记:</label>
+    <input #searchBox id="search-box"
+           (change)="search(searchBox.value)"
+           (keyup)="search(searchBox.value)" />
+    <div>
+      <div *ngFor="let note of notes | async"
+           (click)="gotoDetail(note)" class="search-result" >
+        {{note.content}}
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,11 @@
+<table>
+<div *ngIf="note != null">
+    <div><label>id: </label>{{note.id}}</div>
+    <div>
+      <label>内容: </label>
+      <input [(ngModel)]="note.content" placeholder="content">
+    </div>
+    <button (click)="save()">保存</button>
+    <button (click)="goBack()">返回</button>
+  </div>
+</table>

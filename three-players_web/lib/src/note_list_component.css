@@ -1,0 +1,78 @@
+table{
+  margin:0 auto;
+}
+.add label {
+font-size:20px;
+}
+.add input{
+  width: 200px;
+    height: 20px;
+}
+.add button{
+  background-color:#009999;
+  color:#fff;
+}
+
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  
+  .notes {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+ 
+  }
+  
+  .notes li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+    
+  }
+  
+  .notes li.selected:hover {
+    color: #009999;
+  }
+  
+  .notes li:hover {
+    color: #009999;
+    background-color: rgb(185, 236, 225);
+    left: .1em;
+  }
+  
+  .notes .text {
+    position: relative;
+    top: -3px;
+  }
+  
+  .notes .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #009999;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .notes button{
+    background-color:#009999;
+    color:#fff;
+  }
+
+  .updatenote button{
+    background-color:#009999;
+    color:#fff;
+  }

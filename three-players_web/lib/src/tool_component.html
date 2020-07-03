@@ -1,0 +1,16 @@
+<div *ngIf="tool != null">
+    <h2>{{tool.name}}</h2>
+    <div>
+      <label>id: </label>{{tool.id}}</div>
+    <div>
+      <label>名称: </label>
+      <input [(ngModel)]="tool.name" placeholder="name" />
+    </div>
+    <div>
+        <label>作用: </label>
+      {{tool.function}}</div>
+    <div><label>picture: </label></div>
+    <div><img src="{{tool.link}}" width="400" height="400" alt="" />
+    </div>
+    <button (click)="goBack()">Back</button>
+  </div>

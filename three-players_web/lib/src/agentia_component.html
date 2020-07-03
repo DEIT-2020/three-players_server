@@ -1,0 +1,14 @@
+<div *ngIf="agentia != null">
+    <h2>{{agentia.name}}</h2>
+    <div>
+      <label>id: </label>{{agentia.id}}</div>
+    <div>
+      <label>名称: </label>
+      <input [(ngModel)]="agentia.name" placeholder="name" />
+    </div>
+    <div>
+        <label>作用: </label>
+      {{agentia.function}}</div>
+    </div>
+    <button (click)="goBack()">Back</button>
+ 

@@ -1,0 +1,21 @@
+<table>
+<note-search></note-search>
+<div></div>
+<div class="add">
+  <label>添加新的笔记:</label> <input #noteContent />
+  <button (click)="add(noteContent.value); noteContent.value=''">
+    添加
+  </button>
+</div>
+<ul class="notes">
+    <li *ngFor="let note of notes" [class.selected]="note === selected" (click)="onSelect(note)">
+        <span class="badge">{{note.id}}</span> {{note.content}}
+        <button class="delete"
+        (click)="delete(note); $event.stopPropagation()">删除</button>
+      </li>
+</ul>
+<div class="updatenote" *ngIf="selected != null">
+  <button (click)="gotoDetail()">修改笔记</button>
+</div>
+</table>
+

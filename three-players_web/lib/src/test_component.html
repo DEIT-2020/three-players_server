@@ -1,0 +1,57 @@
+<h3>化学小测试</h3>
+<button id="dotest" (click)="dotest()">做测试</button>&nbsp;&nbsp;&nbsp;
+<button id="review" (click)="review">查看错题</button>
+
+<div *ngIf="hadTest">
+    <div><h3>化学测试</h3></div>
+    <div>1、（知识点：金属的活泼性排名）</div>
+    <div>金属活泼性中钾比镁活泼正确吗？回答是或否</div>
+    <input type="text" (keyup)="onAnswer1($event)">
+    <div>2、（知识点：金属在气体中燃烧）</div>
+    <div>铁在氯气中燃烧产生大量什么颜色的浓烟？回答xx色</div>
+    <input type="text" (keyup)="onAnswer2($event)">
+    <div>3、（知识点：水的过滤）</div>
+    <div>水过滤需要漏斗吗？回答是或否</div>
+    <input type="text" (keyup)="onAnswer3($event)">
+    <div>4、（知识点：酸碱指示剂）</div>
+    <div>酚酞试剂遇到氢氧化钠呈现什么颜色？回答xx色</div>
+    <input type="text" (keyup)="onAnswer4($event)">
+    <div>5、（知识点：化学反应的概念）</div>
+    <div>青铜器的制取是物理反应还是化学反应？回答xx反应</div>
+    <input type="text" (keyup)="onAnswer5($event)">
+    <div>6、（知识点：酸碱中和）</div>
+    <div>酸和碱反应生成什么和水？</div>
+    <input type="text" (keyup)="onAnswer6($event)">   
+    <button (click)="judge" type="submit" >提交</button> 
+</div>
+    <div *ngIf="hadScore">
+    <div><label>你的分数：</label>{{sum}}</div>
+    <li *ngFor="let test of tests" [class.selected]="test === selected"  (click)="onSelect(test)">
+        <span class="badge">{{test.id}}</span>
+         <div><label>{{lista[test.id-1]}}</label></div>
+    <div><label>问题：</label>{{test.question}}</div>
+    <div><label>答案：</label>{{test.answer}}</div>
+    <div><label>解析：</label>{{test.correct}}</div>  
+    </li>
+<div *ngIf="selected != null">
+    <div><label>问题：</label><input [(ngModel)]="selected.question" placeholder="question" #newWrongquestionQuestion  /></div>
+    <div><label>答案：</label><input [(ngModel)]="selected.answer" placeholder="answer" #newWrongquestionAnswer/></div>
+    <div><label>我的分析：</label><input type="text" #newWrongquestionKnowlege > </div>
+    <button id="buttton"   (click)="add(newWrongquestionQuestion.value,newWrongquestionAnswer.value,newWrongquestionKnowlege.value)">加入错题本</button>
+    <p class="error" *ngIf="errorMessage != null">{{errorMessage}}</p>
+</div>
+  
+   
+</div>
+<div *ngIf="hadReview">
+    <div><label>你的错题本</label></div>
+    <ul>
+    <li *ngFor="let wrongquestion of wrongquestions">
+        <span class="badge">{{wrongquestion.id}}</span>
+        <div><label>问题：</label><span>{{wrongquestion.question}}</span></div>
+        <div><label>答案：</label><span>{{wrongquestion.answer}}</span></div>
+        <div><label>我的分析：</label><span>{{wrongquestion.knowledge}}</span></div>
+        <button  class="delete" (click)="delete(wrongquestion);$event.stopPropagation()">删除</button>
+    </li>
+</ul>
+</div>
