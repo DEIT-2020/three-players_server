@@ -1,0 +1,35 @@
+<div class="body">
+  <header class="material-header shadow">
+      <div class="material-header-row">
+        <material-button icon
+            class="material-drawer-button" (trigger)="drawer.toggle()">
+          <material-icon icon="menu"></material-icon>
+        </material-button>
+        <span class="material-header-title"><h2>化学实验宝典</h2></span>
+        <div class="material-spacer"></div>
+        <nav class="material-navigation">
+          <a [routerLink]="RoutePaths.dashboard.toUrl()"
+         [routerLinkActive]="'active'">主页</a>
+        </nav>
+        <nav class="material-navigation">
+          <a [routerLink]="RoutePaths.notes.toUrl()"
+         [routerLinkActive]="'active'">笔记</a>
+        </nav>
+        <nav class="material-navigation">
+          <a [routerLink]="RoutePaths.notes.toUrl()"
+         [routerLinkActive]="'active'">测试</a>
+        </nav>
+      </div>
+    </header>
+    <material-drawer persistent #drawer="drawer">
+      <h4></h4>
+        <h3>欢迎来到化学实验宝典，这里是化学实验的世界！
+            你可以先在左边制定下今日的实验学习计划，再通过点击右边的实验进行学习和探索。
+            希望通过有计划的实验学习，你会有新的收获和理解！</h3>
+      <material-progress></material-progress>
+        <todo-list></todo-list>
+    </material-drawer>
+    <material-content>
+      <router-outlet [routes]="Routes.all"></router-outlet>
+    </material-content>
+  </div>

@@ -1,0 +1,9 @@
+<div>
+   <a *ngFor="let experiment of experiments" class="col-1-4"
+    [routerLink]="experimentUrl(experiment.id)">
+    <div class="module experiment">
+     <h4>{{experiment.name}}</h4>
+    </div></a>
+</div>  
+   
+
